@@ -40,6 +40,7 @@ open class MultiItemTextView : View {
   private var mEndDividerEnable = false
   private var mBottomDividerEnable = false
   private var mMiddleDividerEnable = false
+  private var UnderlineTextmEnable = false
   private var mGravity = 0
 
   // 每个item的内边距
@@ -169,6 +170,9 @@ open class MultiItemTextView : View {
     invalidate()
   }
 
+  fun setUnderlineTextEnable(isUnderlineText: Boolean) {
+    UnderlineTextmEnable = isUnderlineText
+  }
 
   private fun init(context: Context?, attrs: AttributeSet?) {
     if (context != null && attrs != null) {
@@ -323,6 +327,7 @@ open class MultiItemTextView : View {
         mPaint.textSize = mTextSize
         mPaint.strokeWidth = 0F
         mPaint.style = Paint.Style.FILL_AND_STROKE
+        mPaint.isUnderlineText = UnderlineTextmEnable
         canvas.drawText(text, drawableStart + offsetX, startY + offsetY, mPaint)
       }
 
